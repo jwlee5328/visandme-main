@@ -16,4 +16,25 @@
 # ------------------------------------------------------------------
 # Copilot will write code here:
 # ------------------------------------------------------------------
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+csv_path = "sample.csv"
+df = pd.read_csv(csv_path)
+
+# Sort the data by hours (descending) for the bar chart
+df_sorted = df.sort_values(by="hours", ascending=False)
+
+# Create the bar chart
+plt.bar(df_sorted["activity"], df_sorted["hours"])
+
+# Add labels and title
+plt.title("My Day")
+plt.xlabel("Activity")
+plt.ylabel("Hours")
+
+# Save the plot
+plt.savefig("mode2.png")
+
 

@@ -16,5 +16,34 @@
 #
 # ------------------------------------------------------------------
 # Paste Gemini's code below this line:
+import pandas as pd
+import matplotlib.pyplot as plt
+import io
+
+# Input data
+csv_data = """activity,hours
+Sleep,7
+Study,4
+Meals,1.5
+Exercise,0.5
+Leisure,3
+Other,8"""
+
+# Load data into a DataFrame
+df = pd.read_csv(io.StringIO(csv_data))
+
+# Sort the data by hours (descending) for the bar chart
+df_sorted = df.sort_values(by='hours', ascending=False)
+
+# Create the bar chart
+plt.bar(df_sorted['activity'], df_sorted['hours'])
+
+# Add labels and title
+plt.title('My Day')
+plt.xlabel('Activity')
+plt.ylabel('Hours')
+
+# Save the plot
+plt.savefig('mode1.png')
 # ------------------------------------------------------------------
 
